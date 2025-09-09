@@ -1,11 +1,5 @@
 const errorHandler = (err, req, res, next) => {
-    const response = {
-        settings: {
-            success: 0,
-            message: err.message
-        }
-    }
-    res.status(500).json(response);
+    return API_RESPONSE.apiFailure(req, res, err.message, 500);
 }
 
 export default errorHandler
