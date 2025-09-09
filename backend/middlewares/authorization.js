@@ -1,6 +1,6 @@
 const authorization = (req, res, next) => {
     try {
-        // console.log(req.body.user_data);
+        if (req.user.role === 'user') return API_RESPONSE.apiSuccess(req, res, 'User can not Add/Update/Delete record!!', '', 403);
         next()
     } catch (error) {
         next(error);
